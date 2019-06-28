@@ -6,7 +6,7 @@
 
 In the process, we approached the deployment of ML from every angle: Business requirements, technological implementation, compliance, pricing/monetization. A set of questions are provided in this document to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. After you go through the questionnaire, you should have a clear path forward to drive your AIOps implementation.
 
-## AIOps Planning QuestionnaireL
+## AIOps Planning Questionnaire:
 
 The questionnaire addresses the key criterias you should evaluate and there are mainly 4 buckets that you should cover:
 
