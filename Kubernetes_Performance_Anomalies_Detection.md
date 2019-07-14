@@ -1,5 +1,18 @@
 # INTRODUCTION
 
+
+
+Containers are really lightweight. That makes them super flexible and fast. However, they are designed to be short-lived and fragile. I know it seems odd to talk about system components that are designed to not be particularly resilient, but there’s a good reason for it. 
+
+Instead of making each small computing component of a system bullet-proof, you can actually make the whole system a lot more stable by assuming each compute unit is going to fail and designing your overall process to handle it. 
+
+This is probably the thing people have the hardest time with when they make the jump from VM-backed instances to containers. You just can’t have the same expectation for isolation or resiliency with a container as you do for a full-fledged virtual machine.  In the real world, individual containers fail a lot more than individual virtual machines. To compensate for this, containers have to be run in managed clusters that are heavily scheduled and orchestrated. The environment has to detect a container failure and be prepared to replace it immediately. The environment has to make sure that containers are spread reasonably evenly across physical machines (so as to lessen the effect of a machine failure on the system) and manage overall network and memory resources for the cluster. All the scheduling and orchestration systems gaining mindshare now— Kubernetes or others—are designed first and foremost with this principle in mind. 
+
+
+However, there is no free lunch. The more agility you build into the system and the easier you make it to develop the system, change the system or distribute it architecturally, the more complex it becomes. And when I talk about complexity, I mean something quite precise…You effectively increase the entropy of the system design in a very real sense. When you have a system that is built out of a few monolithic parts, it’s possible to infer the state of the system as a whole from a few vantage points. But, if you’ve got lots of independent parts that are working in sync, but loosely coupled together, it becomes harder to predict the state of the system from a few snapshots – you have to look at almost all of the components to be able to see what’s happening end-to-end and acquire an accurate picture.
+
+## KUBE
+
 # KUBERNETES PERFORMANCE - WHAT METRICS ARE IMPORTANT
 
 From the hundred of metrics that Kuberntes exposes, it feels overwhelming to find the metrics to pay attention to. In most cloud providers you will first be concerned with the “core” resource metrics; CPU, memory, disk and network. In a Kubernetes cluster, metrics related to CPU, memory and disk are exposed by the kubetlet (via cAdvisor), while core container metrics are scoped to each container. With close to 1000 unique series being emitted from the node_exporter, it is sometimes difficult to know which metrics to pay attention to. What are the important metrics your system?
