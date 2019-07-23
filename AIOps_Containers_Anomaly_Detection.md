@@ -177,6 +177,7 @@ The solution is composed of several modules, including Data Collection, Data par
 
 - Environment-aware detection is responsible for detecting anomalous Containers and fault diagnosis.
 
-![solutionDiag.png](https://github.com/c-Kedge/tmp/blob/master/solutionDiag.png?raw=true)
+<p align="center"> <img src="https://github.com/c-Kedge/tmp/blob/master/solutionDiag.png?raw=true"> </p>
+
 
 
