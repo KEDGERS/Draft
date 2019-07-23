@@ -1,4 +1,4 @@
-## AIOps: Spice-up Containers Monitoring with Machine Learning
+## AIOps: Spice-up Containerized Apps Monitoring with Machine Learning
 
 ### BACKGROUND
 
