@@ -96,11 +96,15 @@ The method for anomaly detection presented in this paper is based on the fundame
 For each container in a specific domain, a set of attributes and performance metrics are collected. 
 
 The attribute set for Container includes resource configuration and tags (Labels). The attribute set can be formalized by the following vector:  
+
 ![attributes.png](https://github.com/c-Kedge/tmp/blob/master/attributes.png?raw=true)
+
 Where Ri represents an environment attribute, r is the number of attributes. 
 
 The metrics set represents a X ∈ Rn where n is the number of metrics. The metrics set can be formalized as: 
+
 ![metrics.png](https://github.com/c-Kedge/tmp/blob/master/metrics.png?raw=true)
+
 Where Xi is a real number representing the particular metric value for a particular container, and n is the number of metrics.
 
 The matrix (defined below) of Containers in a certain monitoring domain is the important dataset of anomaly detection algorithms. Assume that an observed Container has n performance metrics, Xi, i = 1, …, n. Each metric can be considered as a random variable. These n metrics constitute a random vector, X. All the sample values of Xi (i = 1, …, n) in a point-in-time constitute a sample of X (denoted as x). Further, assume that totally l samples of all Containers in a monitoring domain are obtained in a certain time period. These l samples constitute an n-by-l original sample matrix, Xn×l, where each column (xi) represents a sample of all metrics of a container in a point-in-time. A domain performance metrics set is a set of sets where each column is a vector of a particular Containers metrics values. It can be formalized by the following matrix: 
@@ -110,12 +114,15 @@ The matrix (defined below) of Containers in a certain monitoring domain is the i
 Where n is a number of metrics per Container and l is a number of Container in a domain. 
 
 Let T be a training sample set representing the samples of all the Containers in a monitoring domain for a certain time period, 
+
 ![training.png](https://github.com/c-Kedge/tmp/blob/master/training.png?raw=true)
+
 Where xi∈Rn is the input vector (or instance), yi is the output (or the label of xi), (xi, yi) is called a sample point, l is the number of samples. 
 
 For the problem of detecting performance anomalies on containers in a certain monitoring domain, we defined the following classifier:
 
-1) Binary classification: the task is to determine whether the state of a container represented by a sample is normal or abnormal, then 
+1) Binary classification: the task is to determine whether the state of a container represented by a sample is normal or abnormal, then
+
 ![Binary.png](https://github.com/c-Kedge/tmp/blob/master/Binary.png?raw=true)
 
 When Yi = +1, Xi is called a positive sample; while when Yi = -1, Xi is called a negative sample. The goal is to find a real function g(x) in Rn, 
@@ -123,10 +130,13 @@ y = f(x) = sgn(g(x)),
 Such that f(x) derives the value of y for any sample x, where sgn() is the sign function. 
 
 2) Multiclass classification: the task is to not only determine whether the state of a Container is normal or abnormal, but also determine the type of anomaly, then 
+
 ![multi.png](https://github.com/c-Kedge/tmp/blob/master/multi.png?raw=true)
 
 c is the number of states including the normal state. The goal is to find a decision function f(x) in Rn
+
 ![multi-function.png](https://github.com/c-Kedge/tmp/blob/master/multi-function.png?raw=true)
+
 Such that the class label y of any sample x can be predicted by y = f(x)
 
 ### Designing the Anomaly Detection Strategy
