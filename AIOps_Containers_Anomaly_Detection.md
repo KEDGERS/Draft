@@ -1,5 +1,8 @@
-*"Running Containers in production without monitoring is like driving fast cars without visibility"*
+<p align="justify">
+  *"Running Containers in production without monitoring is like driving fast cars without visibility"*
+</p>
 
+## AIOps: Spice-up Containers Monitoring with Machine Learning
 
 ### BACKGROUND
 
@@ -178,5 +181,17 @@ The solution is composed of several modules, including Data Collection, Data par
 
 <p align="center"> <img src="https://github.com/c-Kedge/tmp/blob/master/solutionDiag.png?raw=true"> </p>
 
+
+
+### Bring all together : Implementation
+
+#### Data Collection:
+Pro
+
+#### Data Partitioning:
+
+#### Data Processing:
+
+#### Environment-aware Detect
 
 
