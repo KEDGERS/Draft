@@ -186,9 +186,9 @@ The solution is composed of several modules, including Data Collection, Data par
 Prometheus at scale = Prometheus + Thanos
 
 #### Data Partitioning:
-Data Domain + Anomaly Types (Trend, Seasonality, Cyclicity, Irregurality)
-
+Spark + Custom code: Data Domain 
 #### Data Processing:
+Spark + Custom Code: Anomaly Types (Trend, Seasonality, Cyclicity, Irregurality)
 
 #### Environment-aware Detect
 Jupyter
