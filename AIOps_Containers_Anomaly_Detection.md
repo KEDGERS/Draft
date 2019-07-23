@@ -180,7 +180,7 @@ The solution is composed of several modules, including Data Collection, Data par
 
 
 ### Bring all together : Implementation
-* Work in Progress...*
+*Work in Progress...*
 
 #### Data Collection:
 Prometheus at scale = Prometheus + Thanos
@@ -193,5 +193,4 @@ Apache Spark
 
 #### Environment-aware Detect
 Jupyter
-
 
