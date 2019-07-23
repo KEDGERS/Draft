@@ -1,4 +1,4 @@
-*Running Containers in production without monitoring is like driving fast cars without visibility*
+*"Running Containers in production without monitoring is like driving fast cars without visibility"*
 
 
 ### BACKGROUND
@@ -13,7 +13,7 @@ In this paper we describe how Artificial Intelligence for IT Operations (AIOps) 
 
 ### Massive Operational Complexity for Containerized Applications
 If we are talking about containers nowadays, most people tend to think of the big blue whale or the white steering wheel on the blue background.
-![](https://miro.medium.com/max/805/1*72WozZ6G_vsox0PFNgWW8g.png)
+<p align="center"> <img src="https://miro.medium.com/max/805/1*72WozZ6G_vsox0PFNgWW8g.png"> </p>
 
 Let’s put these thoughts aside and ask ourselves: What are containers in detail? If we look at the corresponding documentation of Kubernetes we only find explanations about [“Why to use containers?“](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) and lots of [references to Docker](https://kubernetes.io/docs/concepts/containers/images/). Docker itself explains containers as [“a standard unit of software“](https://www.docker.com/resources/what-container). Their explanations provide a general overview but do not reveal much of the underlying “magic“.
 
@@ -76,9 +76,8 @@ An increase in CPU throttling time would be  identified due to the following roo
  - Not throttled
    
 We came up with the following operating model to graphically present the root cause identification process for CPU performance bottleneck:
+<p align="center"> <img src="https://github.com/c-Kedge/tmp/blob/master/CPU_Container.png?raw=true"> </p>
 
-![CPU_Container.png](https://github.com/c-Kedge/tmp/blob/master/CPU_Container.png?raw=true)
- 
 Basically, a walkthrough the operating model would look like the following:
 
  1. If throttling time is increasing, and the cap is throttled - then take that off the operating table straight away.  The metric tells us if the CPU cap has been hit, we know we're caps throttled. 
