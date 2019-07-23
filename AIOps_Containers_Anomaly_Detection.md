@@ -1,7 +1,3 @@
-<p align="justify">
-  *"Running Containers in production without monitoring is like driving fast cars without visibility"*
-</p>
-
 ## AIOps: Spice-up Containers Monitoring with Machine Learning
 
 ### BACKGROUND
@@ -184,14 +180,18 @@ The solution is composed of several modules, including Data Collection, Data par
 
 
 ### Bring all together : Implementation
+* Work in Progress...*
 
 #### Data Collection:
-Pro
+Prometheus at scale = Prometheus + Thanos
 
 #### Data Partitioning:
+Data Domain + Anomaly Types (Trend, Seasonality, Cyclicity, Irregurality)
 
 #### Data Processing:
+Apache Spark
 
 #### Environment-aware Detect
+Jupyter
 
 
