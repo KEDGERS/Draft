@@ -8,7 +8,7 @@ Containers address several important operational problems, that is why they are 
 
 There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the cause of disruptions are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
 
-In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with the telemetry data that is being collected from Containerized applications and see if that curve exists, and then come up with the equation that describes the curve.
+In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with the telemetry data that is being collected from Containerized applications and see if that curve exists, and then come up with the solution that addresses the curve.
 
 ### Massive Operational Complexity for Containerized Applications
 If we are talking about containers nowadays, most people tend to think of the big blue whale or the white steering wheel on the blue background.
