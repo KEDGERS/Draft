@@ -6,7 +6,7 @@ If you are reading this paper, you have probably heard of containers. But if you
 
 Containers address several important operational problems, that is why they are taking the infrastructure world by storm. **But there is a problem:** containers come and go so frequently, and change so rapidly, that they can be an order of magnitude more difficult to monitor and operate than physical or virtual hosts.
 
-There are patterns and events which disrupt the normal end-to-end behavior of the system, but we still need to figure out what the cause of disruptions are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
+There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the cause of disruptions are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
 
 In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with the telemetry data that is being collected from Containerized applications and see if that curve exists, and then come up with the equation that describes the curve.
 
@@ -38,7 +38,7 @@ If you are not addressing these challenges, you are left with two choices:
 
 Instead, we need a new approach where we re-center monitoring around **proactively detecting anomalies for containerized applications** to determine how **performance bottlenecks** on the containers layer of the stack will ripple to the rest of the stack. 
 
-###  Designing an Operating Model for Detecting   Performance Anomalies
+###  Designing an Operating Model for Detecting Performance Anomalies
 Containers pose interesting challenges for performance monitoring and analysis, requiring new analysis methodologies and tooling. Resource-oriented analysis, as is common with systems performance tools, must now account for both hard limits and soft limits, as implemented using cgroups. A reverse diagnosis methodology can be applied to identify whether a container is resource constrained, and by which hard or soft resource. The interaction between the host and containers can also be examined, and noisy neighbors identified or exonerated. This section will walk you through our approach to identify bottlenecks in the host or container configuration, and how to dig deeper into container internals.  
 
 First, Let's walk-through some anti-patterns to start with before diving into best practices of the reverse diagnosis approach:  
