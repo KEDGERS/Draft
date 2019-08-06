@@ -25,8 +25,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
 
  * Can you qualitatively describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
  * Have you documented the success and failure metrics for the solution as a whole as well as the machine-learned (ML) model? Are these metrics measurable?
- * How do you plan on using the ML-model output in your solution?
- * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your datasets, which will eventually result in a better solution altogether?
+ * How do you plan on using the ML-model output in your solution
  * Where in your process will you require humans in the loop?
  
 ### Architecture and Data Infrastructure: 
@@ -34,9 +33,10 @@ Picking one IT process to optimize, alongside building strong data infrastructur
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
   * How would you solve the problem if you did not use ML? What would be the outcome?
-  * Where does the monitoring data come from?
+  * Where does the monitoring data come from? Do you have access to the data? If not, how to you request access to collect the data? 
+  * Is the collected data well-curated to train the AIOps system?
+  * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your datasets, which will eventually        result in a better solution altogether?
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
-  * How can you ensure that all your critical datasources align to the desired outcome that the machine learning algorithms?  
   * Do you plan on leveraging historical information or real time (streaming) data?
 
 ### Capabilities and Time to Value:
