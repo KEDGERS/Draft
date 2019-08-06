@@ -32,11 +32,12 @@ Picking one IT process to optimize, alongside building strong data infrastructur
 
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
-  * How would you solve the problem if you did not use ML? What would be the outcome?
+  * How would you solve the problem if you did not use ML?
   * Where does the monitoring data come from? Do you have access to the data? If not, how to you request access to collect the data? 
   * Is the collected data well-curated to train the AIOps system?
   * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your datasets, which will eventually        result in a better solution altogether?
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
+  * 
   * Do you plan on leveraging historical information or real time (streaming) data?
 
 ### Capabilities and Time to Value:
