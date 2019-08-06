@@ -6,17 +6,18 @@ If you are reading this paper, you have probably heard of containers. But if you
 
 Containers address several important operational problems, that is why they are taking the infrastructure world by storm. **But there is a problem:** containers come and go so frequently, and change so rapidly, that they can be an order of magnitude more difficult to monitor and operate than physical or virtual hosts.
 
-There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the cause of disruptions are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
+There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the causes of disruption are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
 
-In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with the telemetry data that is being collected from Containerized applications and see if that curve exists, and then come up with the solution that addresses the curve.
+In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with performance metrics being collected from Containerized environment and see if that curve exists, and then come up with the solution that addresses the curve.
 
 ### Massive Operational Complexity for Containerized Applications
+
 If we are talking about containers nowadays, most people tend to think of the big blue whale or the white steering wheel on the blue background.
 <p align="center"> <img src="https://miro.medium.com/max/805/1*72WozZ6G_vsox0PFNgWW8g.png"> </p>
 
 Let’s put these thoughts aside and ask ourselves: What are containers in detail? If we look at the corresponding documentation of Kubernetes we only find explanations about [“Why to use containers?“](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) and lots of [references to Docker](https://kubernetes.io/docs/concepts/containers/images/). Docker itself explains containers as [“a standard unit of software“](https://www.docker.com/resources/what-container). Their explanations provide a general overview but do not reveal much of the underlying “magic“.
 
-Eventually, people tend to imagine containers as lightweight virtual machines (VMs) that start up fast, which technically does not come close to the real world. A container is a lightweight virtual runtime, its primary purpose is to provide software isolation. A significant architectural shift toward containers is underway, and as with any architectural shift, that means new operational challenges. The well-understood challenges include orchestration, networking, and configuration—in fact there are many active software projects addressing these issues. However, the significant operational challenge of monitoring containers is much less well-understood. Most of the existing  monitoring solutions cover the traditional stack:
+Eventually, people tend to imagine containers as lightweight virtual machines (VMs) that start up fast, which technically does not come close to the real world. A container is a lightweight **virtual runtime**, its primary purpose is to provide software isolation. A significant architectural shift toward containers is underway, and this architectural shift comes with new operational challenges. The well-understood challenges include orchestration, networking, and configuration — In fact there are many active software projects addressing these issues. However, the significant operational challenge of monitoring containers is much less well-understood. Most of the existing  monitoring solutions cover the traditional stack:
 
 -   Application performance monitoring instruments your custom code to identify and pinpoint bottlenecks or errors
 
@@ -26,7 +27,7 @@ When you add containers to your stack, your world gets much, much more complex. 
 
 - Containers come and go so frequently, and change so rapidly, that they can be more difficult to monitor and understand than physical or virtual hosts.
 
-- Within containerized environments you might need  to monitor 150 metrics per Operating System, and for each container let's assume you collect 50 metrics plus another 50 metrics reported by an off-the-shelf component running in the container. (This is a conservative number, as we see customers collecting many more). In that case we would add 100 new metrics per container, Assuming the host runs 10 containers, the number of metrics we will collect is:
+- Within containerized environments you might need  to monitor 150 metrics per Operating System, and for each container let's assume you collect 50 metrics, plus another 50 metrics reported by an off-the-shelf component running in the container. (This is a conservative number, as we see customers collecting many more). In that case we would add 100 new metrics per container, Assuming the host runs 10 containers, the number of metrics we will collect is:
 OS + (Containers per host * (Container + Off-the-shelf)) = 100 + (10 * (50 + 50)) = **1100 metrics per host**
 With close to 1000 unique series being emitted, it is difficult to know which metrics to pay attention to.
 
@@ -38,7 +39,7 @@ If you are not addressing these challenges, you are left with two choices:
 
 Instead, we need a new approach where we re-center monitoring around **proactively detecting anomalies for containerized applications** to determine how **performance bottlenecks** on the containers layer of the stack will ripple to the rest of the stack. 
 
-###  Designing an Operating Model for Detecting Performance Anomalies
+###  Designing the Operating Model
 Containers pose interesting challenges for performance monitoring and analysis, requiring new analysis methodologies and tooling. Resource-oriented analysis, as is common with systems performance tools, must now account for both hard limits and soft limits, as implemented using cgroups. A reverse diagnosis methodology can be applied to identify whether a container is resource constrained, and by which hard or soft resource. The interaction between the host and containers can also be examined, and noisy neighbors identified or exonerated. This section will walk you through our approach to identify bottlenecks in the host or container configuration, and how to dig deeper into container internals.  
 
 First, Let's walk-through some anti-patterns to start with before diving into best practices of the reverse diagnosis approach:  
@@ -87,7 +88,7 @@ Basically, a walkthrough the operating model would look like the following:
 
 A similar process should be followed for I/O, networking and memory: Recommendation is to start with the final outcomes (root causes) and then work backwards to come up with a differential diagnosis, so you can then identify the metrics related to one of those possible root causes. The process should be modeled as an operating map, showing a wizard that tells possible outcomes related to deviation for specific metrics.
 
-### Designing the Dataset for Anomaly Detection
+### Designing the Dataset
 
 The method for anomaly detection presented in this paper is based on the fundamental principle of organizing all the containers in the system into multiple domains by centering  data partitioning on tags (labels). Since the same components across the system should behave similarly, doing the same tasks and running the same software, you want to group them together. e.g. components that are responsible for routing HTTP requests might have higher CPU usage and lower input/output operations per second (IOPS), whereas processes transferring huge amounts of data to or from a Container would have higher read operations per second. A set of performance metrics for each container is also collected at the time, and then each domain is going to be examined in order to find any outliers.
 
@@ -137,19 +138,19 @@ c is the number of states including the normal state. The goal is to find a deci
 
 Such that the class label y of any sample x can be predicted by y = f(x)
 
-### Designing the Anomaly Detection Strategy
+### Designing the Strategy for Anomaly Detection
 
 Anomaly detection for Containers in a certain monitoring domain  faces the following challenges. 
 
-1) Multiple anomaly categories. Under Cloud environment, there are many factors that may cause anomalous performance of VMs. Anomalies of VMs are diversified. Therefore, in order to further detect the types of anomalies, anomaly detection of VMs should be considered as a multi-class classification problem. However, the existing researches in literature usually only determine the states of VMs as normal or abnormal (i.e., binary classification). 
+1) Multiple anomaly categories. Under Cloud environment, there are many factors that may cause anomalous performance of Containers. Anomalies of Containers are diversified. Therefore, in order to further detect the types of anomalies, anomaly detection should be considered as a multi-class classification problem. 
 
 2) Imbalanced training sample sets. In general, normal samples can be easily collected. Despite frequent occurrence, anomalies are still small probability events compared with normal states. Therefore, it is not easy to collect abnormal samples. When Cloud platform is newly deployed, or a monitoring domain is newly partitioned, the training sample set only contains normal samples. After the detection framework detects abnormal states and sends to the operator for verification, abnormal samples are gradually accumulated. Therefore, a perfect anomaly detection system should be able to deal with imbalanced training sample set. 
 
-3) Increasing number of training samples. Since Cloud platform is a real production environment, the detection framework collects sample data of VMs in real-time. In order to accurately reflect the new trend of performance or state of VMs, the detected and verified samples should be added into the training sample set. The training of anomaly detection model usually requires much time. Therefore, the adopted anomaly detection algorithm should have the ability of online learning, i.e., the detection model can be updated only according to the newly added training samples. At the same time, some selected samples should be deleted to avoid the number of training samples exceeding the capability of training sample set. 
+3) Increasing number of training samples. Since Cloud platform is a real production environment, the detection framework collects sample data in real-time. In order to accurately reflect the new trend of performance, the detected and verified samples should be added into the training sample set. The training of anomaly detection model usually requires much time. Therefore, the adopted anomaly detection algorithm should have the ability of online learning, i.e., the detection model can be updated only according to the newly added training samples. At the same time, some selected samples should be deleted to avoid the number of training samples exceeding the capability of training sample set. 
 
-There is no universal detection algorithm which can solve all the problems of Containers anomaly detection. Therefore, to cope with above challenges, this paper designs strategies of selecting Support Vector Machines (SVM) based anomaly detection algorithm from a set of algorithms for different situations, which are summarized as follows:
+There is no universal detection algorithm which can solve all these challenges. Therefore, to cope with the above challenges, this paper designs strategies of selecting Support Vector Machines (SVM) based anomaly detection algorithm from a set of algorithms for different situations, which are summarized as follows:
 
-1) If there are only normal samples, One Class SVM (OCSVM) is chosen. These situations include newly deployed Cloud platforms or newly partitioned monitoring domains. Since there is no training sample set, the solution collects some samples and sends to the operator, there are only normal samples without abnormal ones in an initial period of running time. 
+1) If there are only normal samples, One Class SVM (OCSVM) is chosen. These situations include newly deployed Cloud platforms or newly partitioned monitoring domains. There are only normal samples without abnormal ones in an initial period of running time. 
 
 2) If the ratio of one kind of samples is below a certain threshold (e.g., the proportion of the number of minority class to the total number of training sample set is less than 5%), i.e., the training sample set is imbalanced, imbalanced SVM is chosen. Imbalanced SVM can effectively solve the problem of imbalanced classification, thus improving the accuracy of anomaly detection. 
 
