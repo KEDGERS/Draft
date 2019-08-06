@@ -21,15 +21,14 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 * What processes are key to your IT Operations? Could any of them be (further) optimized?
 * How much time/money would you save from optimizing one process (workflow) over another?
 
-Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature.
+Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Process:
 
  * Can you qualitatively describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
  * Have you documented the success and failure metrics for the solution as a whole as well as the machine-learned (ML) model? Are these metrics measurable?
  * How do you plan on using the ML-model output in your solution?
- * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your datasets, which will eventually result in a better product offering altogether?
+ * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your datasets, which will eventually result in a better solution altogether?
  * Where in your process will you require humans in the loop?
- * How do you plan on training people to maintain them? 
-
+ 
 ### Architecture and Data Infrastructure: 
 
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
@@ -37,7 +36,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * How would you solve the problem if you did not use ML? What would be the outcome?
   * Where does the monitoring data come from?
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
-  * How can you ensure that all your critical datasources align to the desired outcome that the machine learning algorithms powered solution offers you? How could you leverage this data to develop a better or more customized offering? 
+  * How can you ensure that all your critical datasources align to the desired outcome that the machine learning algorithms?  
   * Do you plan on leveraging historical information or real time (streaming) data?
 
 ### Capabilities and Time to Value:
