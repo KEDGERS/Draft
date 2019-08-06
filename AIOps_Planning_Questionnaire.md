@@ -1,4 +1,4 @@
-# Questionnaire - How to get started with building Artificial Intelligence for IT Operations (AIOps) based solutions
+# Questionnaire - Getting started with AIOps-based solutions
 
 ## Preface:
     
