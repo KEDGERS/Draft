@@ -1,16 +1,20 @@
-# Questionnaire - Getting started with AIOps-based solutions
+# QuestionsSheet - Getting started with AIOps-based solutions
 
 ## Preface:
     
-   According to Gartner, IT Operations (IT Ops) are in the midst of a revolution. The forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage our IT ecosystems. And Gartner’s term that captures the spirit of these changes is Artificial Intelligence for IT Operations, or *AIOps*. Diving into AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable *AIOps* by deploying *Machine Learning (ML) models* to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
+   According to Gartner, IT Operations (IT Ops) are in the midst of a revolution. The forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage our IT ecosystems. And Gartner’s term that captures the spirit of these changes is Artificial Intelligence for IT Operations, or *AIOps*. 
+   
+Diving into an AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable *AIOps* by deploying *Machine Learning (ML) models* to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
 
-In the process, we approached the deployment of ML from every angle: Business requirements, technological implementation, compliance, pricing/monetization. A set of questions are provided in this document to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. After you go through the questionnaire, you should have a clear path forward to drive your AIOps implementation.
+In the process, we approached the deployment of AIOps from every angle: Business requirements, Technical Architecture, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. 
+
+After you go through the questionnaire, you should have a clear path forward to drive your AIOps implementation.
 
 ## AIOps Planning Questionnaire:
 
-The questionnaire addresses the key criterias you should evaluate and there are mainly 4 buckets that you should cover:
+The questionnaire addresses the key criterias you should evaluate and there are 4 buckets that you should cover:
 
-### General requirements:
+### Business Requirements:
 
    These questions should be answered by the business side. Goal is to identify opportunities where AIOps helps make the business more efficient and cheaper to operate.  
 
