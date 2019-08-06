@@ -30,12 +30,13 @@ Picking one IT process to optimize, alongside building strong data infrastructur
  * Where in your process will you require humans in the loop?
  * How do you plan on training people to maintain them? 
 
-### Data Infrastructure and existing Tool-belt: 
+### Architecture and Data Infrastructure: 
 
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
   * How would you solve the problem if you did not use ML? What would be the outcome?
-  * Where does the training data come from? 
+  * Where does the monitoring data come from?
+  * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
   * How can you ensure that all your critical datasources align to the desired outcome that the machine learning algorithms powered solution offers you? How could you leverage this data to develop a better or more customized offering? 
   * Do you plan on leveraging historical information or real time (streaming) data?
 
