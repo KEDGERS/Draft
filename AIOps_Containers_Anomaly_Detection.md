@@ -13,7 +13,7 @@ In this paper we describe how Artificial Intelligence for IT Operations (AIOps) 
 ### Massive Operational Complexity for Containerized Applications
 
 If we are talking about containers nowadays, most people tend to think of the big blue whale or the white steering wheel on the blue background.
-<p align="center"> <img src="https://miro.medium.com/max/805/1*72WozZ6G_vsox0PFNgWW8g.png"> </p>
+<p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1kubeDocker.png"> </p>
 
 Let’s put these thoughts aside and ask ourselves: What are containers in detail? If we look at the corresponding documentation of Kubernetes we only find explanations about [“Why to use containers?“](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) and lots of [references to Docker](https://kubernetes.io/docs/concepts/containers/images/). Docker itself explains containers as [“a standard unit of software“](https://www.docker.com/resources/what-container). Their explanations provide a general overview but do not reveal much of the underlying “magic“.
 
