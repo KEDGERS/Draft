@@ -2,11 +2,11 @@
 
 ### Preface:
     
-    According to Gartner, IT Operations (IT Ops) are in the midst of a revolution. The forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage our IT ecosystems. And Gartner’s term that captures the spirit of these changes is Artificial Intelligence for IT Operations, or *AIOps*. 
+   According to Gartner, IT Operations (IT Ops) are in the midst of a revolution. The forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage our IT ecosystems. And Gartner’s term that captures the spirit of these changes is Artificial Intelligence for IT Operations, or *AIOps*. 
    
-    Diving into an AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable *AIOps* by deploying *Machine Learning (ML) models* to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
+   Diving into an AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable *AIOps* by deploying *Machine Learning (ML) models* to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
 
-    In the process, we approached the deployment of AIOps from every angle: Business requirements, Technical Architecture, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. 
+   In the process, we approached the deployment of AIOps from every angle: Business requirements, Technical Architecture, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. 
 
 After you go through the questionnaire, you should have a clearer path forward to drive your AIOps implementation.
 
@@ -16,13 +16,13 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 
 #### Business Requirements:
 
-    These questions should be answered by the business side. Goal is to identify opportunities where AIOps helps make the business more efficient and cheaper to operate.  
+   These questions should be answered by the business side. Goal is to identify opportunities where AIOps helps make the business more efficient and cheaper to operate.  
 
 * What processes are key to your IT Operations? Could any of them be (further) optimized?
 * How much time/money would you save from optimizing one process (workflow) over another?
 * Succeeding in Artificial Intelligence (AI) requires a commitment to DevOps and agile experimentation. How patient the organization is about the ongoing AIOps initiative?
 
-    Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Process:
+   Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Process:
 
  * Can you qualitatively describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
  * Have you documented the success and failure metrics for the solution as a whole as well as the machine-learned (ML) model? Are these metrics measurable?
@@ -31,7 +31,7 @@ The questionnaire addresses the key criterias you should evaluate and there are 
  
 #### Architecture and Data Infrastructure: 
 
-    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
+   It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
   * Have you invested in monitoring (measuring) everything (all-stack), from the network, machine, application and people’s level?
   * Where does the monitoring data come from? Do you have access to the data? If not, how to you request access to the collected the data? 
@@ -56,7 +56,7 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 
 #### Capabilities and Time to Value:
 
-    It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins. This is particualarly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.
+   It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins. This is particualarly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.
 
   * Can you achieve quick wins (rapid ROI) to gain credibility? 
   * What is your overall time to value for deploying these ML capabilities? and can you implement them incrementally? 
@@ -64,7 +64,7 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 
 #### Compliance and Interpretability:
 
-    When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
+   When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
 
   * How important for you is to have that control about what machine learning algorithm is doing?
   * Do you have requirements to audit the AIOps system to remain in compliance?
@@ -72,11 +72,11 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 
 #### Total Cost of Ownership (TCO) :
 
-    You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatning their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the painpoints. These questions should be answered by the business side.
+   You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatning their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the painpoints. These questions should be answered by the business side.
    
   * Are the teams that are experiencing these IT operations pain points well aligned with the benefits that the AIOps solution can deliver?   
   * Does achieving the ROI from the AIOps solution requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
   
 ### Footnote
 
-    There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
+   There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
