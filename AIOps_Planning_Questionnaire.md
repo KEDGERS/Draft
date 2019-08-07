@@ -39,6 +39,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * How would you solve the problem if you did not use AIOps?
   * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your monitoring datasets, which will eventually result in a better solution altogether?
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
+  * AIOps is going to find patterns in large amount of data, are you really thinking through those patterns and how to be able to process those at scale?
   * Do you plan on leveraging historical information or real time (Streaming) data?
   * Do you have well-defined objectives for:
         
@@ -66,17 +67,16 @@ Picking one IT process to optimize, alongside building strong data infrastructur
    When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
 
   * How important for you is to have that control about what machine learning algorithm is doing?
-  * Do you have the requirements to audit the AIOps system to remain in compliance?
+  * Do you have requirements to audit the AIOps system to remain in compliance?
 
 
 ### Total Cost of Ownership (TCO) :
 
-   You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing ML is threatning their jobs, what is that perception is going to have on rollout and the effectiveness of the solution, or they are going to have different perception, this will help them do their jobs more effectively, a force multiplier, and enabler and allows them to do less busy work. So making sure the real benefits of ML are well aligned to the painpoints of your teams within the domain that the data can provide for you is really important aspect. These questions should be answered by Technical Architects.
+   You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatning their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the painpoints. These questions should be answered by the business side.
    
-  * Are the teams that are experiencing these IT operations pain points are well aligned with the benefits that the ML-based solution can deliver? 
-  * The ML model is going to find patterns in large amount of data, are you really thinking through those patterns and how to be able to process those at scale? Are these aligned to the teams that are working through those IT processes today? 
-  * Does achieving the ROI from ML requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
+  * Are the teams that are experiencing these IT operations pain points well aligned with the benefits that the AIOps solution can deliver?   
+  * Does achieving the ROI from the AIOps solution requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
   
 ## Footnote
 
-  There are many natural ways to approach a large AIOps projects in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. Thing big, start small, learn and iterate...
+  There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
