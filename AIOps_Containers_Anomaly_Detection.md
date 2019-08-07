@@ -76,7 +76,7 @@ An increase in CPU throttling time would be  identified due to the following roo
  - Not throttled
    
 We came up with the following operating model to graphically present the root cause identification process for CPU performance bottleneck:
-<p align="center"> <img src="https://github.com/c-Kedge/tmp/blob/master/CPU_Container.png?raw=true"> </p>
+<p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1cpuGraph.png?raw=true"> </p>
 
 Basically, a walkthrough the operating model would look like the following:
 
