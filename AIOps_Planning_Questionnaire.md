@@ -67,7 +67,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * Do you have the ability to audit the system to remain in compliance?
 
 
-### Total Cost of Ownership (TCO):
+### Total Cost of Ownership (TCO) :
 
    You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing ML is threatning their jobs, what is that perception is going to have on rollout and the effectiveness of the solution, or they are going to have different perception, this will help them do their jobs more effectively, a force multiplier, and enabler and allows them to do less busy work. So making sure the real benefits of ML are well aligned to the painpoints of your teams within the domain that the data can provide for you is really important aspect. These questions should be answered by Technical Architects.
    
