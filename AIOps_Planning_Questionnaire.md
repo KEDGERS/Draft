@@ -33,12 +33,12 @@ Picking one IT process to optimize, alongside building strong data infrastructur
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
   * Have you invested in monitoring (measuring) everything (all-stack), from the network, machine, application and people’s level?
-  * Where does the monitoring data come from? Do you have access to the data? If not, how to you request access to collect the data? 
+  * Where does the monitoring data come from? Do you have access to the data? If not, how to you request access to the collected the data? 
   * Is the collected data well-curated to train the AIOps system?
   * How would you solve the problem if you did not use AIOps?
   * Can you leverage the expertise of your employees or other stakeholders in the “labeling” of your monitoring datasets, which will eventually result in a better solution altogether?
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
-  * Do you plan on leveraging historical information or real time (streaming) data?
+  * Do you plan on leveraging historical information or real time (Streaming) data?
   * Do you have well-defined objectives for:
         
         - Time to detect?
@@ -49,7 +49,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
         - Time to recovery — partial and full?
         - Time to all-clear and stable?
         
-  * How would you document postmortem for outages?
+  * Are you documenting postmortems for outages?
   * Do you have well-defined processes for resilency (chaos) engineering?
 
 ### Capabilities and Time to Value:
