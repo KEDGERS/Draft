@@ -40,7 +40,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * Do you have an understanding of the behavior of the system in normal condition (Steady State)?
   * Do you plan on leveraging historical information or real time (streaming) data?
   * Do you have well-defined objectives for:
-  
+        
         - Time to detect?
         - Time for notification? And escalation?
         - Time to public notification?
@@ -48,6 +48,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
         - Time for self-healing?
         - Time to recovery — partial and full?
         - Time to all-clear and stable?
+        
   * How would you document postmortem for outages?
   * Do you have well-defined processes for resilency (chaos) engineering?
 
