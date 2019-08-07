@@ -1,6 +1,6 @@
-# Questions Sheet - Getting started with AIOps-based solutions
+## Questions Sheet - Getting started with AIOps-based solutions
 
-## Preface:
+### Preface:
     
    According to Gartner, IT Operations (IT Ops) are in the midst of a revolution. The forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage our IT ecosystems. And Gartner’s term that captures the spirit of these changes is Artificial Intelligence for IT Operations, or *AIOps*. 
    
@@ -10,11 +10,11 @@ In the process, we approached the deployment of AIOps from every angle: Business
 
 After you go through the questionnaire, you should have a clearer path forward to drive your AIOps implementation.
 
-## AIOps Planning Questionnaire:
+### AIOps Planning Questionnaire:
 
 The questionnaire addresses the key criterias you should evaluate and there are 5 buckets that you should cover:
 
-### Business Requirements:
+#### Business Requirements:
 
    These questions should be answered by the business side. Goal is to identify opportunities where AIOps helps make the business more efficient and cheaper to operate.  
 
@@ -29,7 +29,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
  * How do you plan on using the ML-model output in your solution?
  * Where in your process will you require humans in the loop?
  
-### Architecture and Data Infrastructure: 
+#### Architecture and Data Infrastructure: 
 
    It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.
    
@@ -54,7 +54,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * Are you documenting postmortems for outages?
   * Do you have well-defined guidelines for resilency (chaos) engineering?
 
-### Capabilities and Time to Value:
+#### Capabilities and Time to Value:
 
    It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins. This is particualarly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.
 
@@ -62,7 +62,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * What is your overall time to value for deploying these ML capabilities? and can you implement them incrementally? 
   * How much training data do you need to actually start to see really value out of the ML solution?
 
-### Compliance and Interpretability:
+#### Compliance and Interpretability:
 
    When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
 
@@ -70,13 +70,13 @@ Picking one IT process to optimize, alongside building strong data infrastructur
   * Do you have requirements to audit the AIOps system to remain in compliance?
 
 
-### Total Cost of Ownership (TCO) :
+#### Total Cost of Ownership (TCO) :
 
    You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatning their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the painpoints. These questions should be answered by the business side.
    
   * Are the teams that are experiencing these IT operations pain points well aligned with the benefits that the AIOps solution can deliver?   
   * Does achieving the ROI from the AIOps solution requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
   
-## Footnote
+### Footnote
 
   There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
