@@ -54,13 +54,13 @@ The questionnaire addresses the key criterias you should evaluate and there are 
   * Are you documenting postmortems for outages?
   * Do you have well-defined guidelines for resilency (chaos) engineering?
 
-#### Capabilities and Time to Value:
+#### Expectations and Time to Value:
 
    It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins. This is particualarly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.
 
   * Can you achieve quick wins (rapid ROI) to gain credibility? 
-  * What is your overall time to value for deploying these ML capabilities? and can you implement them incrementally? 
-  * How much training data do you need to actually start to see really value out of the ML solution?
+  * What is your overall time to value for deploying the AIOps features? and can you implement them incrementally? 
+  * How much training data do you need to actually start to see really value out of the AIOps solution?
 
 #### Compliance and Interpretability:
 
