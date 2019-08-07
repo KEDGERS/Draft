@@ -1,4 +1,4 @@
-## Questions Sheet - Getting started with AIOps-based solutions
+## Getting started with AIOps solutions - (Questions Sheet)
 
 ### Preface:
     
