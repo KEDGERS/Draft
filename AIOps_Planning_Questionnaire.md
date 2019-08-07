@@ -20,6 +20,7 @@ The questionnaire addresses the key criterias you should evaluate and there are 
 
 * What processes are key to your IT Operations? Could any of them be (further) optimized?
 * How much time/money would you save from optimizing one process (workflow) over another?
+* Succeeding in Artificial Intelligence (AI) requires a commitment to DevOps and agile experimentation. How patient the organization is about the ongoing AIOps initiative?
 
 Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Process:
 
@@ -50,7 +51,7 @@ Picking one IT process to optimize, alongside building strong data infrastructur
         - Time to all-clear and stable?
         
   * Are you documenting postmortems for outages?
-  * Do you have well-defined processes for resilency (chaos) engineering?
+  * Do you have well-defined guidelines for resilency (chaos) engineering?
 
 ### Capabilities and Time to Value:
 
@@ -62,11 +63,10 @@ Picking one IT process to optimize, alongside building strong data infrastructur
 
 ### Compliance and Interpretability:
 
-   When dealing with mission critical IT Operations data and some of the most concervative IT leaders I've ever encountered, it's critical to give confidence in the output and the decisions that are coming from ML. In many cases even if the black box approach is easier, it's better to take an open box approach so the team will actually trust, have level of transparency, and can have control on the solution the same way that they control other aspects of the IT estate. These questions should be answered by Technical Architects.
+   When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
 
-  * Are you dealing with "open box" approach for machine learning or more of "black box" approach? 
   * How important for you is to have that control about what machine learning algorithm is doing?
-  * Do you have the ability to audit the system to remain in compliance?
+  * Do you have the requirements to audit the AIOps system to remain in compliance?
 
 
 ### Total Cost of Ownership (TCO) :
