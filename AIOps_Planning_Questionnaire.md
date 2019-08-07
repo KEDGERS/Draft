@@ -8,11 +8,11 @@ Diving into an AIOps journey without knowing what you’re trying to achieve is 
 
 In the process, we approached the deployment of AIOps from every angle: Business requirements, Technical Architecture, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successfull AIOps implementation. The questionnaire will allow you to increasingly make data-driven decisions and to rally people behind data rather than arbitrary process decisions. 
 
-After you go through the questionnaire, you should have a clear path forward to drive your AIOps implementation.
+After you go through the questionnaire, you should have a clearer path forward to drive your AIOps implementation.
 
 ## AIOps Planning Questionnaire:
 
-The questionnaire addresses the key criterias you should evaluate and there are 4 buckets that you should cover:
+The questionnaire addresses the key criterias you should evaluate and there are 5 buckets that you should cover:
 
 ### Business Requirements:
 
