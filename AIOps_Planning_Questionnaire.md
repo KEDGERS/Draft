@@ -6,13 +6,13 @@
    
    Diving into an AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable AIOps by deploying Machine Learning (ML) models to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
 
-   In the process, we approached the deployment of AIOps from every angle: Business requirements, Architecture and Data Infrastructure, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successfull AIOps implementation, allowing you to increasingly make data-driven decisions and rally people behind data rather than arbitrary process decisions. 
+   In the process, we approached the deployment of AIOps from every angle: Business requirements, Architecture and Data Infrastructure, Program Management and Return On Investment (ROI). A set of questions are provided in this paper to help guide the process towards successful AIOps implementation, allowing you to increasingly make data-driven decisions and rally people behind data rather than arbitrary process decisions. 
 
 After you go through the questionnaire, you should have a clearer path forward to drive your AIOps implementation.
 
 ### AIOps Planning Questionnaire:
 
-The questionnaire addresses the key criterias you should evaluate, and there are 5 buckets that you should cover:
+The questionnaire addresses the key criteria's you should evaluate, and there are 5 buckets that you should cover:
 
 #### Business Requirements:
 
@@ -24,14 +24,14 @@ The questionnaire addresses the key criterias you should evaluate, and there are
 
    *Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Processes:*
 
- * Can you qualitatively (plain english) describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
+ * Can you qualitatively (plain English) describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
  * Have you documented the success and failure metrics for the solution as a whole as well as the machine-learned (ML) model? Are these metrics measurable?
  * How do you plan on using the ML-model output in your solution?
  * Where in your process will you require humans in the loop?
  
 #### Architecture and Data Infrastructure: 
 
-   *It comes down to documenting the existing ecosystem, the different datasources and how does the solution accomodate these different things. These questions should be answered by Technical Architects.*
+   *It comes down to documenting the existing ecosystem, the different data sources and how does the solution accommodate these different things. These questions should be answered by Technical Architects.*
    
   * Have you invested in monitoring (measuring) everything (full-stack), from the network, machine, application and people’s level?
   * Where does the monitoring data come from? Do you have access to it? If not, how do you request access to the collected the data? 
@@ -52,7 +52,7 @@ The questionnaire addresses the key criterias you should evaluate, and there are
         - Time to all-clear and stable?
         
   * Are you documenting postmortems for IT incidents and outages?
-  * Do you have well-defined guidelines for resilency (chaos) engineering?
+  * Do you have well-defined guidelines for resiliency (chaos) engineering?
 
 #### Expectations and Time to Value:
 
@@ -64,7 +64,7 @@ The questionnaire addresses the key criterias you should evaluate, and there are
 
 #### Compliance and Interpretability:
 
-   *When dealing with mission critical IT Operations data, and some of the most concervative decision-makers I've ever encountered - It is crutial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.
+   *When dealing with mission critical IT Operations data, and some of the most conservative decision-makers I've ever encountered - It is crucial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.*
 
   * How important for you is to have that control about what machine learning algorithm is doing?
   * Do you have requirements to audit the AIOps system to remain in compliance?
@@ -72,7 +72,7 @@ The questionnaire addresses the key criterias you should evaluate, and there are
 
 #### Total Cost of Ownership (TCO) :
 
-   *You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatning their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the painpoints. These questions should be answered by the business side.
+   *You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatening their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the pain points. These questions should be answered by the business side.*
    
   * Are the teams that are experiencing these IT operations pain points well aligned with the benefits that the AIOps solution can deliver?   
   * Does achieving the ROI from the AIOps solution requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
@@ -80,3 +80,4 @@ The questionnaire addresses the key criterias you should evaluate, and there are
 ### Footnote
 
    There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
+
