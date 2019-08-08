@@ -22,7 +22,7 @@ The questionnaire addresses the key criteria's you should evaluate, and there ar
 * How much time/money would you save from optimizing one process (workflow) over another?
 * Succeeding in Artificial Intelligence (AI) requires a commitment to DevOps and agile experimentation. How patient the organization is about the ongoing AIOps initiative?
 
-   *Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Processes:*
+*Picking one IT process to optimize, alongside building strong data infrastructure, will allow you to gradually optimize more IT processes and perhaps even lead to the development of a product feature. For the select IT Processes:*
 
  * Can you qualitatively (plain English) describe the problem you are trying to solve? What you’d like the machine-learned (ML) model to deliver?
  * Have you documented the success and failure metrics for the solution as a whole as well as the machine-learned (ML) model? Are these metrics measurable?
