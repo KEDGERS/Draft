@@ -67,31 +67,30 @@ The key CPU resource metrics exposed in most container platforms are the followi
 | Throttling (count) | Number of CPU throttling enforcements for a container |
 | Throttling (time) | Total time that a container's CPU usage was throttled |
 
-An increase in CPU throttling time would be identified due to the following root causes: 
+Root causes for an increased CPU throttling time would be: 
 
  - Physical CPU is throttled 
- - Cap is throttled 
- - Share throttled (Assuming physical CPU limited as well)
- - Not throttled
+ - Container has CPU Cap configured 
+ - Container has CPU Share configured (Assuming physical CPU limited as well)
+ - Resources not throttled
    
 We came up with the following operating model to graphically present the root cause identification process for CPU performance bottleneck:
 <p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1cpuGraph.png?raw=true"> </p>
 
 Basically, a walkthrough the operating model would look like the following:
 
- 1. If throttling time is increasing, and the cap is throttled - then take that off the operating table straight away.  The metric tells us if the CPU cap has been hit, we know we're caps throttled. 
- 2. If not, if non-voluntary context switches are not increasing for that container, it means we're not getting kicked off CPU and if we're not getting kicked off CPU we're probably not getting throttled so that would tend to put us into the Not throttled outcome unless you have some other theory and you need to dig into the kernel and debug further. 
- 3. Next, if you have idle CPU but you're getting kicked off CPU then something interesting is happening like interrupts and it needs further digging. 
- 4. If you don't have idle CPU and you're getting kicked off CPU, and if other tenants are not idle then you're going to have share contention
- 5. Last, if they are the only tenant on this system then your physical CPU throttled.
+ 1. First, **CPU throttling time** increases only if the container CPU Cap is throttled. We take that out of the operating table.
+ 2. Are you getting **non-voluntary context switches** for that container? If not, then **Physical CPU not throttled**. So that would tend to put us into the Not throttled bucket, unless you have some other theory and you need to dig into the kernel and debug further. 
+ 3. Next, do you have **idle CPU**? if yes, then something interesting is happening such as interrupts and it needs further digging. 
+ 4. If you don't have **idle CPU**, and if **other tenants are not idle** then you're going to have share contention. if they are the only tenant on the system then the physical CPU is throttled.
 
-A similar process should be followed for I/O, networking and memory: Recommendation is to start with the final outcomes (root causes) and then work backwards to come up with a differential diagnosis, so you can then identify the metrics related to one of those possible root causes. The process should be modeled as an operating map, showing a wizard that tells possible outcomes related to deviation for specific metrics.
+A similar process should be followed for I/O, networking and memory. Recommendation is to start with the final outcomes (such as operational metrics or/and user experiences) and then work backwards to come up with a differential diagnosis, so you can then identify the metrics related to one of those outcomes. The process should be modeled as an **operating wizard** that tells possible outcomes related to deviation for specific metrics.
 
 ### Designing the Dataset
 
-The method for anomaly detection presented in this paper is based on the fundamental principle of organizing all the containers in the system into multiple domains by centering  data partitioning on tags (labels). Since the same components across the system should behave similarly, doing the same tasks and running the same software, you want to group them together. e.g. components that are responsible for routing HTTP requests might have higher CPU usage and lower input/output operations per second (IOPS), whereas processes transferring huge amounts of data to or from a Container would have higher read operations per second. A set of performance metrics for each container is also collected at the time, and then each domain is going to be examined in order to find any outliers.
+The method for anomaly detection presented in this paper is based on the fundamental principle of organizing all the containers in the system into multiple domains by partitioning data using tags (labels). Some components across the system might behave similarly, doing the same tasks and running the same software, you want to group these components together. e.g. components that are responsible for routing HTTP requests might have higher CPU usage and lower input/output operations per second (IOPS), whereas processes transferring huge amounts of data to or from a Container would have higher read operations per second. 
 
-For each container in a specific domain, a set of attributes and performance metrics are collected. 
+For each container in a specific domain, a set of system attributes and performance metrics are collected and then each domain is going to be examined in order to identify performance anomalies and associated root causes.
 
 The attribute set for Container includes resource configuration and tags (Labels). The attribute set can be formalized by the following vector:  
 
