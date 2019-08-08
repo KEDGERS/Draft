@@ -1,14 +1,12 @@
 ## AIOps: Spice-up Containerized Apps Monitoring with Machine Learning
 
-### BACKGROUND
+### Background
 
-If you are reading this paper, you have probably heard of containers. But if you haven’t, you can think of containers as easily configured, lightweight VMs that start up fast, often in under one second. They are designed to be short-lived and fragile, I know it seems odd to talk about system components that are designed to not be particularly resilient, but there’s a good reason for it - Instead of making each small computing component of a system bullet-proof, you can actually make the whole system a lot more stable by assuming each compute unit is going to fail and designing your overall process to handle it. 
+If you are reading this paper you have probably heard of containers. But if you haven’t, you can think of containers as easily configured, lightweight Virtual Machines (VMs) that start up fast, often in under one second and they are designed to be short lived and fragile. I know it seems odd to talk about system components that are designed to not be particularly resilient, but there’s a good reason for it - Instead of making each small computing component of a system bullet-proof, you can actually make the whole system a lot more stable by assuming each compute unit is going to fail and designing your overall process to handle it. 
 
-Containers address several important operational problems, that is why they are taking the infrastructure world by storm. **But there is a problem:** containers come and go so frequently, and change so rapidly, that they can be an order of magnitude more difficult to monitor and operate than physical or virtual hosts.
+Containers address several important operational problems, that is why they are taking the infrastructure world by storm. **But there is a problem:** containers come and go so frequently, and change so rapidly, that they can be an order of magnitude more difficult to monitor and operate than physical or virtual hosts. There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the causes of disruption are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
 
-There are patterns and events which disrupt the normal end-to-end behavior of a containerized app, but we still need to figure out what the causes of disruption are to fix whatever is ailing the system. Because of the complexity and high entropy of containers, seeing those patterns and being able to analyze them simply exceeds the capabilities of human operators. Yes, there may be a mathematical curve which describes what’s going on under the hood, but it is so complex that human beings are not able to come up with the equation to make sense of that curve and hence it is very difficult for them to figure out how to deal with it.
-
-In this paper we describe how Artificial Intelligence for IT Operations (AIOps) enables enterprises to work with performance metrics being collected from Containerized environment and see if that curve exists, and then come up with the solution that addresses the curve.
+In this paper we describe how **Artificial Intelligence for IT Operations (AIOps)** enables enterprises to work with performance metrics being collected from containerized environment and see if that curve exists, and then identify the root cause that addresses the curve.
 
 ### Massive Operational Complexity for Containerized Applications
 
@@ -17,7 +15,7 @@ If we are talking about containers nowadays, most people tend to think of the bi
 
 Let’s put these thoughts aside and ask ourselves: What are containers in detail? If we look at the corresponding documentation of Kubernetes we only find explanations about [“Why to use containers?“](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) and lots of [references to Docker](https://kubernetes.io/docs/concepts/containers/images/). Docker itself explains containers as [“a standard unit of software“](https://www.docker.com/resources/what-container). Their explanations provide a general overview but do not reveal much of the underlying “magic“.
 
-Eventually, people tend to imagine containers as lightweight virtual machines (VMs) that start up fast, which technically does not come close to the real world. A container is a lightweight **virtual runtime**, its primary purpose is to provide software isolation. A significant architectural shift toward containers is underway, and this architectural shift comes with new operational challenges. The well-understood challenges include orchestration, networking, and configuration — In fact there are many active software projects addressing these issues. However, the significant operational challenge of monitoring containers is much less well-understood. Most of the existing  monitoring solutions cover the traditional stack:
+Eventually, people tend to imagine containers as lightweight virtual machines (VMs) that start up fast, which technically does not come close to the real world. A container is a lightweight **virtual runtime**, its primary purpose is to provide software isolation. This architectural shift comes with new operational challenges, the well-understood challenges include orchestration, networking, and configuration — In fact there are many active software projects addressing these issues. However, the significant operational challenge of monitoring containers is much less well-understood. Most of the existing  monitoring solutions cover the traditional stack:
 
 -   Application performance monitoring instruments your custom code to identify and pinpoint bottlenecks or errors
 
@@ -25,9 +23,9 @@ Eventually, people tend to imagine containers as lightweight virtual machines (V
 
 When you add containers to your stack, your world gets much, much more complex. In fact, it gets so complex that existing monitoring tools simply can’t explain your system, due to the following challenges:
 
-- Containers come and go so frequently, and change so rapidly, that they can be more difficult to monitor and understand than physical or virtual hosts.
+-   Containers come and go so frequently, and change so rapidly, that they can be more difficult to monitor and understand than physical or virtual hosts.
 
-- Within containerized environments you might need  to monitor 150 metrics per Operating System, and for each container let's assume you collect 50 metrics, plus another 50 metrics reported by an off-the-shelf component running in the container. (This is a conservative number, as we see customers collecting many more). In that case we would add 100 new metrics per container, Assuming the host runs 10 containers, the number of metrics we will collect is:
+-   Within containerized environments you might need  to monitor 150 metrics per Operating System, and for each container let's assume you collect 50 metrics, plus another 50 metrics reported by an off-the-shelf component running in the container. (This is a conservative number, as we see customers collecting many more). Assuming the host runs 10 containers, the number of metrics we will collect is:
 OS + (Containers per host * (Container + Off-the-shelf)) = 100 + (10 * (50 + 50)) = **1100 metrics per host**
 With close to 1000 unique series being emitted, it is difficult to know which metrics to pay attention to.
 
@@ -35,29 +33,30 @@ If you are not addressing these challenges, you are left with two choices:
 
 - Treat containers as hosts that come and go every few minutes. In this case your life is miserable because the monitoring system always thinks half of your infrastructure is on fire.
 
-- Don’t track containers at all. You see what happens in the operating system and the app, but everything in the middle is a gap. In this case, you should expect a very painful ride if you are unable to identify performance bottlenecks at the Container layer of the stack. 
+- Don’t track containers at all. You see what happens in the operating system and the application layer, but everything in the middle is a gap. In this case, you should expect a very painful ride if you are unable to identify performance bottlenecks at the container layer of the stack. 
 
-Instead, we need a new approach where we re-center monitoring around **proactively detecting anomalies for containerized applications** to determine how **performance bottlenecks** on the containers layer of the stack will ripple to the rest of the stack. 
+Instead, we need a new approach where we re-center monitoring around **root cause analysis** and **proactively detecting anomalies** to determine how **performance bottlenecks** on the containers layer will ripple to the rest of the stack. 
 
 ###  Designing the Operating Model
-Containers pose interesting challenges for performance monitoring and analysis, requiring new analysis methodologies and tooling. Resource-oriented analysis, as is common with systems performance tools, must now account for both hard limits and soft limits, as implemented using cgroups. A reverse diagnosis methodology can be applied to identify whether a container is resource constrained, and by which hard or soft resource. The interaction between the host and containers can also be examined, and noisy neighbors identified or exonerated. This section will walk you through our approach to identify bottlenecks in the host or container configuration, and how to dig deeper into container internals.  
+
+Containers pose interesting challenges for performance monitoring requiring new analysis methodologies and tooling. Resource-oriented analysis, as is common with systems performance tools, must now account for both hard and soft limits as implemented using [cgroups](https://en.wikipedia.org/wiki/Cgroups). A reverse diagnosis methodology can be applied to identify whether a container is resource constrained, and by which hard or soft resource. The interaction between the host and containers can also be examined, and noisy neighbors identified or exonerated. This section will walk you through our approach to identify bottlenecks in the host or container configuration, and how to dig deeper into container internals.  
 
 First, Let's walk-through some anti-patterns to start with before diving into best practices of the reverse diagnosis approach:  
 
 #### Performance Analysis: Anti-patterns:
-These are the most common anti-patterns we observed as we work with customers throughout their Containers performance analysis journey:
+These are the most common anti-patterns we observed as we work with customers throughout their containers performance analysis journey:
 
-**Streetlight method:** This comes from a parable about a drunk man who's looking for his keys under a streetlight and a police officer found him and asked "what are you doing?" and he said "I've lost my keys, I'm looking for them". The police officer asked "Did you lose them under the streetlight?" and the drunk says "No but that's where the light is best". We see this quite often in performance analysis, where people tune things at random until the problem goes away. You might end up going around in circles and you miss things because there are blind spots.
+**Streetlight method:** This comes from a parable about a drunk man who's looking for his keys under a streetlight and a police officer found him and asked "what are you doing?", and he said "I've lost my keys, I'm looking for them". The police officer asked "Did you lose them under the streetlight?" and the drunk says "No but that's where the light is best". We see this quite often in container performance analysis, where people tune things at random until the problem goes away. You might end up going around in circles and missing things because there are blind spots.
 
-**Blame someone-else method:** That is about something that you are not responsible for, and you hypothesize that the problem must be a component owned by different team. We've seen this many times where people managing the network are blamed. e.g. either the network must retransmits or there's something wrong with BGP.
+**Blame someone-else method:** That is about something that you are not responsible for, and you hypothesize that the problem must be a component owned by different team. We've seen this many times where people managing the network are blamed. e.g. Either the network must retransmits or there's something wrong with BGP.
 
-**Traffic light method:** Traffic lights are really easy to interpret, red is bad and green is good. Some people like to create these dashboards where they put colors on everything, colors are good for objective metrics such as errors. But performance analysis often times rely on subjective metrics like IOPS and latency, which might be good for one person who's running a chat server online and might be different for someone who's running a high frequency trading application.
+**Traffic light method:** Traffic lights are really easy to interpret, red is bad and green is good. Some people like to create these dashboards where they put colors on everything. Colors are good for objective metrics such as errors, but performance analysis often times rely on subjective metrics like I/O and latency, which might be good for one person who's running a chat server online and might be different for someone who's running a high frequency trading application.
  
- #### Performance Analysis: Reverse diagnosis method
+ #### Performance Analysis: Reverse diagnosis methodology
  
-Now that we have an understanding of anti-patterns, let's talk about the methodology we came up with to identify whether a container is resource constrained, enabling analyzing and tuning containers to be as fast and efficient as possible. The methodology is about enumerating the possible outcomes and then working backwards to identify which metrics are needed to diagnose one of these outcomes. 
+Now that we have an understanding of the anti-patterns, let's talk about the methodology we came up with to identify whether a container is resource constrained, enabling analysis and tuning containers to be as fast and efficient as possible. The methodology is about enumerating the possible outcomes (such as operational metrics or/and user experiences) and then working backwards to identify which internal metrics (such as CPU Throttling Time) and system attributes (such as Physical CPU limited) are needed to diagnose one of these outcomes. 
 
-Containers can rightly be classified as a type of mini-host. Just like a regular host, it runs work on behalf of resident software, and that work uses CPU, memory, I/O, and network resources. However, containers run inside cgroups which don’t report the exact same metrics you might expect from a host. Let's look at the case of identifying CPU performance bottleneck to illustrate the reverse diagnosis methodology using real world example.  
+Just like a regular host, a container runs work on behalf of resident software, and that work uses CPU, memory, I/O, and network resources. However, containers run inside cgroups which don’t report the exact same metrics you might expect from a host. Let's dive deep into the case of container user claiming they have CPU performance issue and identify the root cause for performance bottleneck to illustrate the reverse diagnosis methodology using real world example.  
 
 The key CPU resource metrics exposed in most container platforms are the following
 
@@ -68,10 +67,10 @@ The key CPU resource metrics exposed in most container platforms are the followi
 | Throttling (count) | Number of CPU throttling enforcements for a container |
 | Throttling (time) | Total time that a container's CPU usage was throttled |
 
-An increase in CPU throttling time would be  identified due to the following root causes: 
+An increase in CPU throttling time would be identified due to the following root causes: 
 
  - Physical CPU is throttled 
- - Cap throttled 
+ - Cap is throttled 
  - Share throttled (Assuming physical CPU limited as well)
  - Not throttled
    
@@ -180,7 +179,7 @@ The solution is composed of several modules, including Data Collection, Data par
 
 
 
-### Bring all together : Implementation
+### Bring it all together : Implementation
 *Work in Progress...*
 
 #### Data Collection:
