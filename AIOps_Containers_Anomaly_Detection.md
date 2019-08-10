@@ -37,7 +37,7 @@ If you are not addressing these challenges, you are left with two choices:
 
 Instead, we need a new approach where we re-center monitoring around **root cause analysis** and **proactively detecting anomalies** to determine how **performance bottlenecks** on the containers layer will ripple to the rest of the stack. 
 
-###  Designing the Operating Model
+###  Designing the Operating Wizard
 
 Containers pose interesting challenges for performance monitoring requiring new analysis methodologies and tooling. Resource-oriented analysis, as is common with systems performance tools, must now account for both hard and soft limits as implemented using [cgroups](https://en.wikipedia.org/wiki/Cgroups). A reverse diagnosis methodology can be applied to identify whether a container is resource constrained, and by which hard or soft resource. The interaction between the host and containers can also be examined, and noisy neighbors identified or exonerated. This section will walk you through our approach to identify bottlenecks in the host or container configuration, and how to dig deeper into container internals.  
 
@@ -56,7 +56,7 @@ These are the most common anti-patterns we observed as we work with customers th
  
 Now that we have an understanding of the anti-patterns, let's talk about the methodology we came up with to identify whether a container is resource constrained, enabling analysis and tuning containers to be as fast and efficient as possible. The methodology is about enumerating the possible outcomes (such as operational metrics or/and user experiences) and then working backwards to identify which internal metrics (such as CPU Throttling Time) and system attributes (such as Physical CPU limited) are needed to diagnose one of these outcomes. 
 
-Just like a regular host, a container runs work on behalf of resident software, and that work uses CPU, memory, I/O, and network resources. However, containers run inside cgroups which don’t report the exact same metrics you might expect from a host. Let's dive deep into the case of container user claiming they have CPU performance issue and identify the root cause for performance bottleneck to illustrate the reverse diagnosis methodology using real world example.  
+Just like a regular host, a container runs work on behalf of resident software, and that work uses CPU, memory, I/O, and network resources. However, containers run inside cgroups which don’t report the exact same metrics you might expect from a host. Let's dive deep into the case of an application owner claiming he is observing CPU performance issue and identify the root cause for performance bottleneck to illustrate the reverse diagnosis methodology using real world example.  
 
 The key CPU resource metrics exposed in most container platforms are the following
 
@@ -77,14 +77,15 @@ Root causes for an increased CPU throttling time would be:
 We came up with the following operating model to graphically present the root cause identification process for CPU performance bottleneck:
 <p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1cpuGraph.png?raw=true"> </p>
 
-Basically, a walkthrough the operating model would look like the following:
+Basically, a walkthrough the operating flow chart would look like the following:
 
- 1. First, **CPU throttling time** increases only if the container CPU Cap is throttled. We take that out of the operating table.
- 2. Are you getting **non-voluntary context switches** for that container? If not, then **Physical CPU not throttled**. So that would tend to put us into the Not throttled bucket, unless you have some other theory and you need to dig into the kernel and debug further. 
- 3. Next, do you have **idle CPU**? if yes, then something interesting is happening such as interrupts and it needs further digging. 
- 4. If you don't have **idle CPU**, and if **other tenants are not idle** then you're going to have share contention. if they are the only tenant on the system then the physical CPU is throttled.
+ 1. At the top of the flow-chart, we start with the outcome as observed by end users - In this case, the application owner is claiming CPU performance issues. The claim was backed **Throttling (time)** CPU resource metric. 
+ 2. **Throttling (time)** increases only if the container CPU is throttled.
+ 3. Assuming **Throttling (time)** is not increasing, are you getting **non-voluntary context switches** for that container? If not, then that would put us into the **resources not being throttled** bucket, unless you have some other theory and you need to dig into the kernel and debug further. 
+ 4. Next, if **non-voluntary context switches** increases and you have **idle CPU** on the host, then something interesting is happening such as **interrupts** and it needs further digging. 
+ 5. If you don't have **idle CPU** on the host, and **All other tenants are idle** is NOT true then you're going to have share contention (or **CPU shared throttling**). If it is the only tenant on the system then the **Host CPU is throttled**.
 
-A similar process should be followed for I/O, networking and memory. Recommendation is to start with the final outcomes (such as operational metrics or/and user experiences) and then work backwards to come up with a differential diagnosis, so you can then identify the metrics related to one of those outcomes. The process should be modeled as an **operating wizard** that tells possible outcomes related to deviation for specific metrics.
+A similar process should be followed for I/O, networking and memory. Recommendation is to start with the final outcomes (such as operational metrics or/and user experiences) and then work backwards to come up with a differential diagnosis, so you can then identify the metrics and root causes related to these outcomes. The process should be modeled as an **operating wizard** that tells possible outcomes related to deviation for specific metrics.
 
 ### Designing the Dataset
 
