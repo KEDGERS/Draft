@@ -69,7 +69,7 @@ The key CPU resource metrics exposed in most container platforms are the followi
 
 Root causes for an increased CPU throttling time would be: 
 
- - Physical CPU is throttled 
+ - Host CPU is throttled 
  - Container has CPU Cap configured 
  - Container has CPU Share configured (Assuming physical CPU limited as well)
  - Resources not throttled
