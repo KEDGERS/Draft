@@ -141,39 +141,43 @@ Such that the class label y of any sample x can be predicted by y = f(x)
 
 Anomaly detection for Containers in a certain monitoring domain  faces the following challenges. 
 
-1) Multiple anomaly categories. Under Cloud environment, there are many factors that may cause anomalous performance of Containers. Anomalies of Containers are diversified. Therefore, in order to further detect the types of anomalies, anomaly detection should be considered as a multi-class classification problem. 
+1) Multiple anomaly categories: Under cloud environment, there are many factors that may cause anomalous performance of containers. Therefore, in order to further detect the types of anomalies, anomaly detection should be considered as a multi-class classification problem. 
 
-2) Imbalanced training sample sets. In general, normal samples can be easily collected. Despite frequent occurrence, anomalies are still small probability events compared with normal states. Therefore, it is not easy to collect abnormal samples. When Cloud platform is newly deployed, or a monitoring domain is newly partitioned, the training sample set only contains normal samples. After the detection framework detects abnormal states and sends to the operator for verification, abnormal samples are gradually accumulated. Therefore, a perfect anomaly detection system should be able to deal with imbalanced training sample set. 
+2) Imbalanced training sample sets: Despite frequent occurrence, anomalies are still small probability events compared with steady states. Therefore, it is not easy to collect abnormal samples. When cloud environment is newly deployed, or a monitoring domain is newly partitioned, the training sample set only contains steady samples. After the detection solution detects abnormal states and sends to the operator for verification, abnormal samples are gradually accumulated. Therefore, an anomaly detection system should be able to deal with imbalanced training sample set. 
 
-3) Increasing number of training samples. Since Cloud platform is a real production environment, the detection framework collects sample data in real-time. In order to accurately reflect the new trend of performance, the detected and verified samples should be added into the training sample set. The training of anomaly detection model usually requires much time. Therefore, the adopted anomaly detection algorithm should have the ability of online learning, i.e., the detection model can be updated only according to the newly added training samples. At the same time, some selected samples should be deleted to avoid the number of training samples exceeding the capability of training sample set. 
+3) Increasing number of training samples: The detection solution collects sample data in real-time. In order to accurately reflect the new trend of performance, the detected and verified samples should be added into the training sample set. The training of anomaly detection model usually requires much time. Therefore, the adopted anomaly detection algorithm should have the ability of online learning. At the same time, some selected samples should be deleted to avoid the number of training samples exceeding the capability of training sample set. 
 
-There is no universal detection algorithm which can solve all these challenges. Therefore, to cope with the above challenges, this paper designs strategies of selecting Support Vector Machines (SVM) based anomaly detection algorithm from a set of algorithms for different situations, which are summarized as follows:
+There is no universal detection algorithm which can solve all these challenges. Therefore, to cope with the above constrains, this paper designs strategies for selecting Support Vector Machines (SVM) based anomaly detection algorithm from a set of algorithms for different situations, which are summarized as follows:
 
-1) If there are only normal samples, One Class SVM (OCSVM) is chosen. These situations include newly deployed Cloud platforms or newly partitioned monitoring domains. There are only normal samples without abnormal ones in an initial period of running time. 
+1) If there are only normal samples, **One Class SVM (OCSVM)** is chosen. These situations include newly deployed cloud environment or newly partitioned monitoring domains. There are only normal samples without abnormal ones in an initial period of running time. 
 
-2) If the ratio of one kind of samples is below a certain threshold (e.g., the proportion of the number of minority class to the total number of training sample set is less than 5%), i.e., the training sample set is imbalanced, imbalanced SVM is chosen. Imbalanced SVM can effectively solve the problem of imbalanced classification, thus improving the accuracy of anomaly detection. 
+2) If the ratio of one kind of samples is below a certain threshold (e.g., the proportion of the number of minority class to the total number of training sample set is less than 5%), i.e., the training sample set is imbalanced, **Imbalanced SVM** is chosen. Imbalanced SVM can effectively solve the problem of imbalanced classification, thus improving the accuracy of anomaly detection. 
 
-3) If there are multiple anomaly categories, and the ratio of the number of each category exceeds a certain value, multi-class SVM is chosen. Along with the operation of Cloud platform, various anomaly samples are detected and sent to the operator for verification, thus gradually accumulating a training sample set which contains all kinds of anomalies. Then the solution switches to multi-class SVM. 
+3) If there are multiple anomaly categories, and the ratio of the number of each category exceeds a certain value, **Multi-class SVM** is chosen where various anomaly samples are detected and sent to the operator for verification, thus gradually accumulating a training sample set which contains all kinds of anomalies. 
 
-4) When the solution stably operates for a period of time, and the number of training samples reaches a certain value (such as 30% VT), then online learning SVM is switched. Since then the solution still collects all kinds of samples in real time (part of the samples may be added to the training sample set to update the anomaly detection model). The incremental learning process updates the anomaly detection model with small cost, while the decremental learning process ensures that the training sample size will not exceed the capacity limit. 
+4) When the solution stably operates for a period of time, and the number of training samples reaches a certain value (such as 30%), then **Online learning SVM** is switched where the solution still collects all kinds of samples in real time (part of the samples may be added to the training sample set to update the anomaly detection model). The incremental learning process updates the anomaly detection model with small cost, while the decremental learning process ensures that the training sample size will not exceed the capacity limit. 
 
 ### Designing the Anomaly Detection Solution
 
-In order to implement environment-aware detection and improve the detection accuracy, we followed the following detection approach:
+In order to improve the detection accuracy, we followed the following detection approach:
 
-1) Collect all the Containers running environment attributes and performance metrics at the same time. 
-2) Partition all the Containers into monitoring domains based on tags (Labels). 
-3) In each domain, the equipped anomaly detection module detects anomalous Containers based on their performance metrics.
+1) Continuously collect all the containers attributes and performance metrics. 
+2) Partition all the Containers into monitoring domains based on its associated tags (or Labels). 
+3) In each domain, the anomaly detection module detects anomalous containers based on their performance metrics.
 
-The solution is composed of several modules, including Data Collection, Data partitioning, Data Processing and Environment-aware Detection. The function of each module is detailed as follows:
+The solution is composed of several modules, including Data Collection, Data Partitioning, Data Processing, Anomalies Detection and Verification. The function of each module is detailed as follows:
 
-- Data Collection is responsible for collecting the performance metric data and environment attribute of all Containers and transmitting to the upper module.
+1) **Data Collection** is responsible for collecting performance metrics and environment attributes of all Containers and transmitting to the Data Partitioning module.
 
-- Data Partitioning is responsible for partitioning all the Containers into several monitoring domains according to attribute set.
+2) **Data Partitioning** is responsible for partitioning all the containers performance data into several monitoring domains according to attribute sets.
 
-- Data Processing is responsible for indispensable processing including feature extraction on collected data. Before anomaly detection, feature selection is executed on the performance metric data to reduce data dimensionality.
+3) **Data Processing** is responsible for indispensable processing including feature extraction on collected data. Before anomaly detection, feature selection is executed on the performance metric data to reduce data dimensionality.
 
-- Environment-aware detection is responsible for detecting anomalous Containers and fault diagnosis.
+4) **Anomalies detection** is responsible for preliminarily detecting anomalous, and submitting the set of candidate anomalies to the upper module for verification.
+
+5) **Verification** is responsible for giving the ability for operators to give feedback and further improve the detection accuracy.
+
+is responsible for detecting anomalous Containers and fault diagnosis.
 
 <p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1solutionGraph.png?raw=true"> </p>
 
