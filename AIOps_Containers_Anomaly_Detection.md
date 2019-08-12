@@ -175,7 +175,7 @@ The solution is composed of several modules, including Data Collection, Data Par
 
 4) **Anomalies detection** is responsible for preliminarily detecting anomalous, and submitting the set of candidate anomalies to the upper module for verification.
 
-5) **Verification** is responsible for giving the ability for operators to give feedback and further improve the detection accuracy.
+5) **Verification** is responsible for giving the ability to operators to give feedback and further improve the detection accuracy.
 
 The following figure shows a high level architecture of the solution, divided into 5 components:
 
@@ -183,8 +183,8 @@ The following figure shows a high level architecture of the solution, divided in
 
 
 
-### Bring it all together : Implementation
-*Work in Progress...*
+### Bring it all together : Implementation (*Work in Progress...*)
+
 
 #### Data Collection:
 Prometheus at scale = Prometheus + Thanos
