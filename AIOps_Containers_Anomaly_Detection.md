@@ -177,7 +177,7 @@ The solution is composed of several modules, including Data Collection, Data Par
 
 5) **Verification** is responsible for giving the ability for operators to give feedback and further improve the detection accuracy.
 
-is responsible for detecting anomalous Containers and fault diagnosis.
+The following figure shows a high level architecture of the solution, divided into 5 components:
 
 <p align="center"> <img src="https://github.com/KEDGERS/Draft/blob/master/Diagrams/a1solutionGraph.png?raw=true"> </p>
 
@@ -191,9 +191,10 @@ Prometheus at scale = Prometheus + Thanos
 
 #### Data Partitioning:
 Spark + Custom code: Data Domain 
+
 #### Data Processing:
 Spark + Custom Code: Anomaly Types (Trend, Seasonality, Cyclicity, Irregurality)
 
-#### Environment-aware Detect
-Jupyter
+#### Anomalies Detection
+Python @ notebooks
 
