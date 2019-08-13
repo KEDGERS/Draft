@@ -79,8 +79,8 @@ We came up with the following operating model to graphically present the root ca
 
 Basically, a walkthrough the operating flow chart would look like the following:
 
- 1. At the top of the flow-chart, we start with the outcome as observed by end users - In this case, the application owner is claiming CPU performance issues. Instinctly, CPU performance issues would correlate with the **Throttling (time)** CPU resource metric. 
- 2. **Throttling (time)** increases if container CPU is throttled.
+ 1. At the top of the flow-chart, we start with the outcome as observed by end users - In this case, the application owner is claiming CPU performance issues. CPU performance issues would correlate with the container **CPU Throttling (time)**. 
+ 2. Obviously, container **CPU Throttling (time)** increases if container CPU is throttled.
  3. Assuming **Throttling (time)** is not increasing, are you getting **non-voluntary context switches** for that container? If not, then that would put us into the **resources not being throttled** bucket, unless you have some other theory and you need to dig into the kernel and debug further. 
  4. Next, if **non-voluntary context switches** increases and you have **idle CPU** on the host, then something interesting is happening such as **interrupts** and it needs further digging. 
  5. If you don't have **idle CPU** on the host, and **All other tenants are idle** is NOT true then you're going to have share contention (or **CPU shared throttling**). If it is the only tenant on the system then the **Host CPU is throttled**.
