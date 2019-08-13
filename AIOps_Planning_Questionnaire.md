@@ -79,5 +79,5 @@ The questionnaire addresses the key criteria's you should evaluate, and there ar
   
 ### Footnote
 
-   There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small, learn and iterate...**
+   There are many natural ways to approach a large AIOps project in phases. The more agile you could be in your approach, the more likely it's going to be successfully adopted and achieve the outcome you are shooting for. **Thing big, start small (and simple), learn and iterate...**
 
