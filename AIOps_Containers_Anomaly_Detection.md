@@ -163,7 +163,7 @@ In order to improve the detection accuracy, we followed the following detection 
 
 1) Continuously collect all the containers attributes and performance metrics. 
 2) Partition all the Containers into monitoring domains based on its associated tags (or Labels). 
-3) In each domain, the anomaly detection module detects anomalous containers based on their performance metrics.
+3) In each domain, the anomaly detection module detects anomalous containers based on their performance metrics and submits a set of candidate anomalies to the operators for verification.
 
 The solution is composed of several modules, including Data Collection, Data Partitioning, Data Processing, Anomalies Detection and Verification. The function of each module is detailed as follows:
 
