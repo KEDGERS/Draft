@@ -151,7 +151,7 @@ There is no universal detection algorithm which can solve all these challenges. 
 
 1) If there are only normal samples, **One Class SVM (OCSVM)** is chosen. These situations include newly deployed cloud environment or newly partitioned monitoring domains. There are only normal samples without abnormal ones in an initial period of running time. 
 
-2) If the ratio of one kind of samples is below a certain threshold (e.g., the proportion of the number of minority class to the total number of training sample set is less than 5%), i.e., the training sample set is imbalanced, **Imbalanced SVM** is chosen. Imbalanced SVM can effectively solve the problem of imbalanced classification, thus improving the accuracy of anomaly detection. 
+2) If the ratio of one kind of samples is below a certain threshold (i.e. the training sample set is imbalanced), **Imbalanced SVM** is chosen. Imbalanced SVM can effectively solve the problem of imbalanced classification, thus improving the accuracy of anomaly detection. 
 
 3) If there are multiple anomaly categories, and the ratio of the number of each category exceeds a certain value, **Multi-class SVM** is chosen where various anomaly samples are detected and sent to the operator for verification, thus gradually accumulating a training sample set which contains all kinds of anomalies. 
 
