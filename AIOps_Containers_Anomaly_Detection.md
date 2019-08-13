@@ -199,4 +199,4 @@ Spark + Custom Code: Anomaly Types (Trend, Seasonality, Cyclicity, Irregurality)
 Python @ notebooks
 
 #### Verification
-NoSQL + Graphana
+NoSQL + Grafana
