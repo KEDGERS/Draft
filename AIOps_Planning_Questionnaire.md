@@ -54,9 +54,9 @@ The questionnaire addresses the key criteria's you should evaluate, and there ar
   * Are you documenting postmortems for IT incidents and outages?
   * Do you have well-defined guidelines for resiliency (chaos) engineering?
 
-#### Expectations and Time to Value:
+#### Return On Investment and Time to Value:
 
-   *It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins. This is particularly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.*
+   *It is critical to have some realistic expectations about when to start to show a Return On Investment (ROI), or identify opportunities for quick wins - This is particularly important if the organization is early in the adoption of ML. We are seeing a lot of healthy skepticism around what ML can actually achieve, and if you are champing these implementations it is important to actually show that the technology really works, and eliminate some of the skepticism that is lurking in the back of the minds of a lot of decision makers and executive sponsors. These questions should be answered by Technical Architects.*
 
   * Can you achieve quick wins (rapid ROI) to gain credibility? 
   * What is your overall time to value for deploying the AIOps features? and can you implement them incrementally? 
@@ -64,7 +64,7 @@ The questionnaire addresses the key criteria's you should evaluate, and there ar
 
 #### Compliance and Interpretability:
 
-   *When dealing with mission critical IT Operations data, and some of the most conservative decision-makers I've ever encountered - It is crucial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models. The main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. These questions should be answered by Technical Architects.*
+   *When dealing with mission critical IT Operations data, and some of the most conservative decision-makers I've ever encountered - It is crucial for the success of the project to give confidence in the output that are coming from the AIOps system. In an AIOps project, the implementation process can be impacted by the Machine Learning (ML) models and the main difference in ML models is that they either prioritize explaining the world to people (Open Box approach) or predicting outcomes (Black Box approach). In many cases, even if the black box approach is easier to implement, it's better to take an open box approach so you earn trust, have level of transparency, and can have control on the solution the same way that the organization controls other aspects of the IT estate. The below questions should be answered by Technical Architects.*
 
   * How important for you is to have that control about what machine learning algorithm is doing?
   * Do you have requirements to audit the AIOps system to remain in compliance?
@@ -72,7 +72,7 @@ The questionnaire addresses the key criteria's you should evaluate, and there ar
 
 #### Total Cost of Ownership (TCO) :
 
-   *You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases those teams may feel introducing AIOps is threatening their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the pain points. These questions should be answered by the business side.*
+   *You would think some of these questions are obvious, but we've run into some projects that have gone side ways because they were not considered early enough in the process. In some cases IT teams may feel introducing AIOps is threatening their jobs - What is that perception is going to have on the rollout and the effectiveness of the solution? So making sure the real benefits are well aligned to the pain points. These questions should be answered by the business side.*
    
   * Are the teams that are experiencing these IT operations pain points well aligned with the benefits that the AIOps solution can deliver?   
   * Does achieving the ROI from the AIOps solution requires your team to make major changes to the processes and tools they have today (The fewer the changes, the greater the chances for overall success)?
