@@ -2,7 +2,7 @@
 
 ### Preface:
     
-   According to Gartner, IT Operations (IT Ops) are in the midst of a revolution and the forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how we manage the IT ecosystems. And Gartner’s term that captures the spirit of these changes is **Artificial Intelligence for IT Operations**, or **AIOps**. 
+   According to Gartner, IT Operations (IT Ops) are in the midst of a revolution and the forces of digital business transformation are necessitating a change to traditional IT management techniques. Consequently, we are seeing a significant change in current IT Ops procedures and a restructuring in how the IT ecosystems are managed. Gartner’s term that captures the spirit of these changes is **Artificial Intelligence for IT Operations**, or **AIOps**. 
    
    Diving into an AIOps journey without knowing what you’re trying to achieve is a recipe for disaster. In the last couple of years I’ve had the opportunity to work with companies to help them define their AIOps strategy, from problem framing to end-to-end implementation in production. We worked together to enable AIOps by deploying Machine Learning (ML) models to boost efficiency of their IT operations, develop ML-powered features, and build new solutions.
 
